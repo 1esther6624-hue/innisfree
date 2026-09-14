@@ -1,0 +1,541 @@
+/* 이니스프리index.css */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: var(--font-base);
+    color: var(--color-ink);
+    line-height: 1.5;
+    background-color: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+button {
+    font-family: inherit; cursor: pointer; border: none; background: none;
+}
+.wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+/* ============================= header */
+header {
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid var(--color-line);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+header .header_inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header .header_inner .logo {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: var(--color-point);
+}
+header nav {}
+header nav ul {
+    display: flex;
+    gap: 36px;
+}
+header nav ul li {}
+header nav ul li a {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--color-ink);
+    white-space: nowrap;
+}
+header .header_inner .nav_icons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+header .header_inner .nav_icons button {
+    font-size: 18px;
+    color: var(--color-ink);
+}
+header .header_inner .nav_icons .menu_toggle {
+    display: none;
+    font-size: 22px;
+}
+header .mobile_menu {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    border-top: 1px solid var(--color-line);
+    padding: 8px 24px 20px;
+}
+header .mobile_menu.open {
+    display: flex;
+}
+header .mobile_menu a {
+    padding: 12px 0;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-line);
+}
+
+/* ========================================== main */
+/* ------------------------------------------ hero */
+main {}
+main #hero {
+    width: 100%;
+    min-height: 70vh;
+    background-image: url(../images/hero_bg.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 0 240px;
+}
+main #hero .hero_text .eyebrow {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+main #hero .hero_text h1 {
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 18px;
+}
+main #hero .hero_text p {
+    font-size: 15px;
+    margin-bottom: 28px;
+}
+main #hero .hero_text .btn_pill {
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 30px;
+    background-color: var(--color-point);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+main #hero .hero_inner .hero_text .btn_pill:hover {
+    background-color: var(--color-point-light);
+}
+/* ------------------------------------------ 공통 섹션 헤드 */
+main .section_head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+main .section_head h2 {
+    font-size: 24px;
+    font-weight: 800;
+}
+main .see_all {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-gray);
+}
+
+/* ------------------------------------------ best sellers */
+main #best {
+    width: 100%;
+    padding: 130px 0 200px 0;
+}
+main #best .wrap .best_grid {
+    display: flex;
+    gap: 28px;
+}
+main #best .wrap .best_grid .best_photo {
+    flex: 1.1;
+    width: 100%; height: 661px;
+    background-image: url(../images/best1.png);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+}
+main #best .wrap .best_grid .best_right {
+    flex: 1.6;
+    display: flex; justify-content: end;
+    flex-direction: column;
+}
+main #best .wrap .best_grid .best_right .best_list {
+    display: flex;
+    gap: 18px;
+}
+main #best .wrap .best_grid .best_right .best_list .product_card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+main #best .wrap .best_grid .best_right .best_list .product_card .product_thumb {
+    aspect-ratio: 1 / 1;
+    border-radius: 2px;
+    margin-bottom: 12px;
+    background-color: var(--color-placeholder);
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+    padding: 12px;
+}
+main #best .wrap .best_grid .best_right .best_list .product_card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+/* ------------------------------------------ 공통 상품 카드 요소 (concern, shop 재사용) */
+main .product_card .price {
+    font-size: 14px;
+    font-weight: 700;
+}
+main .product_card .price .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    background-color: var(--color-point-light);
+    border-radius: 3px;
+    padding: 1px 6px;
+    margin-left: 6px;
+}
+main .product_card .price .old_price {
+    color: #999;
+    text-decoration: line-through;
+    font-weight: 400;
+    font-size: 13px;
+    margin-left: 6px;
+}
+main .product_card .rating {
+    font-size: 12px;
+    color: var(--color-point-light);
+}
+
+/* ------------------------------------------ campaign / retinol */
+main #campaign {
+    width: 100%;
+    background-color: #b0b0b0;
+    color: #fff;
+    padding: 80px 0 0;
+}
+main #campaign .campaign_inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 24px 60px;
+}
+main #campaign .campaign_inner h2 {
+    font-size: 34px;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+main #campaign .campaign_inner .sub {
+    font-size: 15px;
+    font-weight: 600;
+    opacity: 0.9;
+    margin-bottom: 14px;
+}
+main #campaign .campaign_inner .shop_now {
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: underline;
+}
+main #campaign .campaign_grid {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 24px 64px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+main #campaign .campaign_grid .campaign_card {}
+main #campaign .campaign_grid .campaign_card figure {
+    aspect-ratio: 3 / 4;
+    border-radius: 2px;
+    margin-bottom: 14px;
+    background-color: var(--color-placeholder);
+    color: var(--color-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+main #campaign .campaign_grid .campaign_card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+main #campaign .campaign_grid .campaign_card p.desc {
+    font-size: 12.5px;
+    color: var(--color-gray);
+    margin-bottom: 10px;
+}
+main #campaign .campaign_grid .campaign_card .price {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+}
+main #campaign .campaign_grid .campaign_card .rating {
+    font-size: 12px;
+    color: #fff;
+    opacity: 0.85;
+}
+
+/* ------------------------------------------ shop by concern */
+main #concern {
+    width: 100%;
+    padding: 64px 0;
+}
+main #concern .wrap .concern_title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 24px;
+}
+main #concern .wrap .concern_title .point {
+    color: var(--color-point);
+}
+main #concern .wrap .tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 36px;
+}
+main #concern .wrap .tabs .tab {
+    padding: 9px 20px;
+    border-radius: 20px;
+    border: 1px solid var(--color-line);
+    color: var(--color-gray);
+    font-size: 13.5px;
+    font-weight: 600;
+}
+main #concern .wrap .tabs .tab.active {
+    background-color: var(--color-point);
+    border-color: var(--color-point);
+    color: #fff;
+}
+main #concern .wrap .concern_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+main #concern .wrap .concern_grid .product_card .concern_thumb {
+    aspect-ratio: 1 / 1;
+    border-radius: 2px;
+    margin-bottom: 12px;
+    background-color: var(--color-placeholder);
+}
+main #concern .wrap .concern_grid .product_card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+/* ------------------------------------------ shop (사이드바 + 상품) */
+main #shop {
+    width: 100%;
+    padding: 64px 0;
+}
+main #shop .wrap .shop_grid {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 32px;
+}
+main #shop .wrap .shop_grid .shop_cats {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+main #shop .wrap .shop_grid .shop_cats .cat_pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border-radius: 24px;
+    border: 1px solid var(--color-line);
+    font-size: 13.5px;
+    font-weight: 600;
+}
+main #shop .wrap .shop_grid .shop_cats .cat_pill.active {
+    border-color: var(--color-point-light);
+    color: var(--color-point);
+}
+main #shop .wrap .shop_grid .shop_cats .cat_pill .cat_dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #e8f2e9;
+    flex: none;
+}
+main #shop .wrap .shop_grid .shop_right .shop_products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+main #shop .wrap .shop_grid .shop_right .shop_products .product_card .product_thumb {
+    aspect-ratio: 4 / 5;
+    border-radius: 2px;
+    margin-bottom: 12px;
+    background-color: var(--color-placeholder);
+}
+main #shop .wrap .shop_grid .shop_right .shop_products .product_card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+/* ------------------------------------------ jeju */
+main #jeju {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #f5f5f5;
+}
+main #jeju .jeju_photo {
+    min-height: 320px;
+    background-color: #c9c9c9;
+    color: #666;
+    font-weight: 800;
+    font-size: 22px;
+    display: flex;
+    align-items: flex-end;
+    padding: 24px;
+}
+main #jeju .jeju_content {
+    padding: 56px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+main #jeju .jeju_content .kicker {
+    font-size: 13px;
+    color: var(--color-gray);
+    margin-bottom: 8px;
+}
+main #jeju .jeju_content h2 {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+main #jeju .jeju_content .btn_outline {
+    display: inline-block;
+    width: fit-content;
+    padding: 10px 22px;
+    border: 1px solid var(--color-ink);
+    border-radius: 24px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 28px;
+}
+main #jeju .jeju_content .jeju_links a {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-top: 1px solid var(--color-line);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ------------------------------------------ store banner */
+main #store {
+    width: 100%;
+    min-height: 220px;
+    background-color: #999;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+main #store .logo_lg {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+main #store .store_desc {
+    font-size: 15px;
+}
+main #store .btn_pill {
+    background-color: #fff;
+    color: #555;
+    padding: 12px 26px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ============================================ footer */
+footer {
+    width: 100%;
+    background-color: #111;
+    color: #ccc;
+    padding: 48px 0 24px;
+    font-size: 13px;
+}
+footer .wrap .footer_top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+footer .wrap .footer_top .footer_brand .footer_logo {
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 14px;
+}
+footer .wrap .footer_top .footer_brand .footer_social {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+footer .wrap .footer_top .footer_brand .footer_social span {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #222;
+    color: #ccc;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+footer .wrap .footer_top .footer_cols {
+    display: flex;
+    gap: 64px;
+    flex-wrap: wrap;
+}
+footer .wrap .footer_top .footer_cols .footer_col h4 {
+    color: #fff;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+footer .wrap .footer_top .footer_cols .footer_col p,
+footer .wrap .footer_top .footer_cols .footer_col a {
+    display: block;
+    color: #999;
+    margin-bottom: 6px;
+    line-height: 1.7;
+}
+footer .wrap .footer_bottom {
+    border-top: 1px solid #292929;
+    padding-top: 20px;
+    color: #777;
+    font-size: 12px;
+}
+footer .wrap .footer_bottom .footer_bottom_links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}

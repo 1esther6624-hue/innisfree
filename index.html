@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>INNISFREE</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/var.css">
+    <link rel="stylesheet" href="./styles/responsive.css">
+    <script src="./scripts/index.js" defer></script>
+</head>
+
+<body>
+    <!-- ================헤더 -->
+    <header>
+        <div class="header_inner">
+            <a class="logo" href="./index.html"><img src="./images/logo.png" alt=""></a>
+            <nav>
+            <ul>
+                <li><a href="#">SHOP</a></li>
+                <li><a href="#">BEST</a></li>
+                <li><a href="#">SKIN CONCERN</a></li>
+                <li><a href="#">BRAND</a></li>
+                <li><a href="#">EVENT</a></li>
+            </ul>
+            </nav>
+            <div class="nav_icons">
+                <button aria-label="검색"><img src="" alt=""></button>
+                <button aria-label="마이페이지"><img src="" alt=""></button>
+                <button aria-label="장바구니"><img src="" alt=""></button>
+                <button class="menu_toggle" id="menuToggle" aria-label="메뉴 열기"><img src="" alt=""></button>
+            </div>
+            
+        </div>
+        <div class="mobile_menu" id="mobileMenu">
+            <a href="#">SHOP</a>
+            <a href="#">BEST</a>
+            <a href="#">SKIN CONCERN</a>
+            <a href="#">BRAND</a>
+            <a href="#">EVENT</a>
+        </div>
+    </header>
+    <!-- ================== 메인시작 -->
+    <main>
+        <section id="hero">
+            <div class="hero_text">
+                <div class="eyebrow">Green Tea Seed</div>
+                <h1>Hyaluronic Serum</h1>
+                <p>제주 녹차의 수분 에너지를 피부에 깊이 채우다</p>
+                <a class="btn_pill" href="#">자세히 보기 &nbsp;›</a>
+            </div>
+        </section><!-- e: 히어로 -->
+
+        <section id="best">
+            <div class="wrap">
+            <div class="best_grid">
+                <div class="best_photo"></div>
+                    <div class="best_right">
+                        <div class="section_head">
+                            <h2>BEST SELLERS</h2>
+                            <a class="see_all" href="#">SHOP ALL ›</a>
+                        </div>
+                        <div class="best_list">
+                            <div class="product_card">
+                                <img src="./images/best2.png" alt="">
+                                <h3>Green Tea Seed Hyaluronic Serum</h3>
+                                <div class="price">31,000원 <span class="tag">80mL</span></div>
+                            </div>
+                            <div class="product_card">
+                                <img src="./images/best3.png" alt="">
+                                <h3>Retinol PDRN Booster Ampoule</h3>
+                                <div class="price">40,000원 <span class="tag">25mL</span></div>
+                            </div>
+                            <div class="product_card">
+                                <img src="./images/best4.png" alt="">
+                                <h3>Vitamin C Capsule Serum</h3>
+                                <div class="price">38,000원 <span class="tag">30mL</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- e: 베스트 -->
+
+        <section id="campaign">
+            <div class="campaign_inner">
+                <h2>RETINOL SKIN WEEK</h2>
+                <div class="sub">30% OFF</div>
+                    <a class="shop_now" href="#">SHOP NOW ›</a>
+                </div>
+                <div class="campaign_grid">
+                <div class="campaign_card">
+                    <figure class="cf_1">모델 이미지 1</figure>
+                    <h3>레티놀 시카 흔적 패드</h3>
+                    <p class="desc">모공·요철·유수분 밸런스에 안갈감 피부결을 완성</p>
+                    <div class="price">23,000원 <span class="old_price">28,000원</span></div>
+                    <div class="rating">★ 4.9 · 후기 900+</div>
+                </div>
+                <div class="campaign_card">
+                    <figure class="cf_2">모델 이미지 2</figure>
+                    <h3>레티놀 시카 모공 흔적 앰플</h3>
+                    <p class="desc">4주 사용 후 모공 부피 42.4%, 탄력 37.5% 개선</p>
+                    <div class="price">45,460원 <span class="old_price">56,000원</span></div>
+                    <div class="rating">★ 4.9 · 후기 900+</div>
+                </div>
+                <div class="campaign_card">
+                    <figure class="cf_3">모델 이미지 3</figure>
+                    <h3>레티놀 시카 모공 흔적 크림</h3>
+                    <p class="desc">모공·요철·유수분 밸런스를 안갈감있게 완성</p>
+                    <div class="price">23,000원 <span class="old_price">28,000원</span></div>
+                    <div class="rating">★ 4.9 · 후기 900+</div>
+                </div>
+            </div>
+        </section><!-- e: 이벤트 -->
+
+        <section id="concern">
+            <div class="wrap">
+                <h2 class="concern_title">SHOP BY <span class="point">CONCERN</span></h2>
+                <div class="tabs">
+                    <button class="tab">수분 · 보습</button>
+                    <button class="tab active">트러블 · 진정</button>
+                    <button class="tab">모공 · 피지</button>
+                    <button class="tab">잡티 · 톤</button>
+                    <button class="tab">주름 · 탄력</button>
+                </div>
+                <div class="section_head">
+                    <div></div>
+                    <a class="see_all" href="#">SHOP ALL ›</a>
+                </div>
+                <div class="concern_grid">
+                    <div class="product_card">
+                        <div class="concern_thumb"></div>
+                        <h3>레티놀 PDRN 스킨부스터 앰플 25mL</h3>
+                        <div class="price">28,800원 <span class="old_price">40,000원</span></div>
+                        <div class="rating">★ 4.9 · 후기 900+</div>
+                    </div>
+                    <div class="product_card">
+                        <div class="concern_thumb"></div>
+                        <h3>레티놀 시카 모공 흔적 앰플 50mL</h3>
+                        <div class="price">45,460원 <span class="old_price">56,000원</span></div>
+                        <div class="rating">★ 4.8 · 후기 900+</div>
+                    </div>
+                    <div class="product_card">
+                        <div class="concern_thumb"></div>
+                        <h3>비자 트러블 폼 클렌징 150g</h3>
+                        <div class="price">10,000원 <span class="old_price">12,000원</span></div>
+                        <div class="rating">★ 4.9 · 후기 900+</div>
+                    </div>
+                    <div class="product_card">
+                        <div class="concern_thumb"></div>
+                        <h3>비자 트러블 토너 170mL</h3>
+                        <div class="price">13,000원 <span class="old_price">19,000원</span></div>
+                        <div class="rating">★ 4.9 · 후기 900+</div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- e: 피부별 -->
+
+        <section id="shop">
+            <div class="wrap">
+                <div class="shop_grid">
+                    <div class="shop_cats">
+                        <div class="cat_pill active"><span class="cat_dot"></span>스킨케어</div>
+                        <div class="cat_pill"><span class="cat_dot"></span>메이크업</div>
+                        <div class="cat_pill"><span class="cat_dot"></span>남성</div>
+                        <div class="cat_pill"><span class="cat_dot"></span>헤어·바디·소품</div>
+                    </div>
+                    <div class="shop_right">
+                        <div class="section_head">
+                            <h2>SHOP</h2>
+                            <a class="see_all" href="#">SHOP ALL ›</a>
+                        </div>
+                        <div class="shop_products">
+                            <div class="product_card">
+                                <div class="product_thumb st_1"></div>
+                                <h3>블랙티 앰플 대용량 스페셜 세트</h3>
+                                <div class="price">41,300원 <span class="old_price">59,000원</span></div>
+                                <div class="rating">★ 4.9 · 후기 900+</div>
+                            </div>
+                            <div class="product_card">
+                                <div class="product_thumb st_2"></div>
+                                <h3>그린티 수분 세럼 마카롱 에디션 130mL</h3>
+                                <div class="price">33,750원 <span class="old_price">45,000원</span></div>
+                                <div class="rating">★ 4.9 · 후기 900+</div>
+                            </div>
+                            <div class="product_card">
+                                <div class="product_thumb st_3"></div>
+                                <h3>블랙티 유스 인핸싱 트리트먼트 에센스 75g</h3>
+                                <div class="price">20,880원 <span class="old_price">29,000원</span></div>
+                                <div class="rating">★ 4.9 · 후기 900+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="jeju">
+            <div class="jeju_photo">FROM JEJU</div>
+            <div class="jeju_content">
+                <div class="kicker">제주의 자연에서 시작된 이야기</div>
+                <h2>자연에서 피부의 답을 찾다</h2>
+                <a class="btn_outline" href="#">VIEW MORE</a>
+                <div class="jeju_links">
+                    <a href="#">제주의 자연에서 발견한 피부를 위한 원료 <span>›</span></a>
+                    <a href="#">지속가능한 발걸음의 방향 <span>›</span></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="store">
+            <div class="logo_lg">INNISFREE</div>
+            <div class="store_desc">가까운 이니스프리 매장을 찾아보세요</div>
+            <a class="btn_pill" href="#">FIND A STORE</a>
+        </section>
+    </main><!-- e: 메인 -->
+
+    <footer>
+        <div class="wrap">
+            <div class="footer_top">
+            <div class="footer_brand">
+                <div class="footer_logo">INNISFREE</div>
+                <div class="footer_social">
+                    <span>IG</span><span>TT</span><span>FB</span>
+                </div>
+            </div>
+            <div class="footer_cols">
+                <div class="footer_col">
+                    <h4>COMPANY</h4>
+                    <p>(주)이니스프리</p>
+                    <p>080-380-0114 대표이사 최동석</p>
+                    <p>서울특별시 용산구</p>
+                    <p>한강대로 100 7층</p>
+                </div>
+                <div class="footer_col">
+                    <h4>CUSTOMER SERVICE</h4>
+                    <p>080-380-0114</p>
+                    <p>09:00 — 18:00</p>
+                    <p>Lunch 12:00 — 13:00</p>
+                    <p>토요일 공휴일 휴무</p>
+                </div>
+            </div>
+            </div>
+            <div class="footer_bottom">
+                <div>© INNISFREE INC. ALL RIGHTS RESERVED.</div>
+                <div>사업자등록번호 106-86-68127 | 통신판매신고번호 2018-서울용산-0014</div>
+                <div class="footer_bottom_links">
+                    <a href="#">서비스 이용약관</a>
+                    <a href="#">개인정보처리방침</a>
+                    <a href="#">영상정보처리기기 운영·관리방침</a>
+                    <a href="#">위치기반서비스 이용약관</a>
+                    <a href="#">공지사항</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

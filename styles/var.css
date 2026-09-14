@@ -1,0 +1,14 @@
+/* 이니스프리 var.css */
+:root {
+    --color-bg: #ffffff;
+    --color-ink: #1a1a1a;
+    --color-gray: #A1A1A1;
+    --color-line: #F5F5F5;
+    --color-point: #00782D;
+    --color-point-light: #16B65E;
+    --color-placeholder: #e0e0e0;
+    --font-base: "Pretendard", sans-serif;
+    --maxw: 1740px;
+
+    --font-size-base: ;
+}
