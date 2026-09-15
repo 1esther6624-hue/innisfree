@@ -3,53 +3,40 @@
 body {
     font-family: var(--font-base);
     color: var(--color-ink);
-    line-height: 1.5;
     background-color: var(--color-bg);
     -webkit-font-smoothing: antialiased;
 }
 img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
-ul { list-style: none; }
-button {
-    font-family: inherit; cursor: pointer; border: none; background: none;
-}
 .wrap {
     max-width: var(--maxw);
     margin: 0 auto;
-    padding: 0 24px;
+}
+.shop_all {
+    display: flex; gap: 5px;
 }
 /* ============================= header */
 header {
     width: 100%;
     background-color: #fff;
-    border-bottom: 1px solid var(--color-line);
     position: sticky;
     top: 0;
     z-index: 100;
 }
 header .header_inner {
     max-width: var(--maxw);
+    height: 70px;
     margin: 0 auto;
-    padding: 18px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-header .header_inner .logo {
-    font-size: 22px;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    color: var(--color-point);
-}
 header nav {}
 header nav ul {
     display: flex;
-    gap: 36px;
+    gap: 100px;
 }
 header nav ul li {}
 header nav ul li a {
-    font-size: 14.5px;
-    font-weight: 600;
     color: var(--color-ink);
     white-space: nowrap;
 }
@@ -62,25 +49,19 @@ header .header_inner .nav_icons button {
     font-size: 18px;
     color: var(--color-ink);
 }
+/* ------------------------------------------------------------------- 태블릿, 모바일 */
 header .header_inner .nav_icons .menu_toggle {
     display: none;
     font-size: 22px;
 }
 header .mobile_menu {
     display: none;
-    flex-direction: column;
-    background-color: #fff;
-    border-top: 1px solid var(--color-line);
-    padding: 8px 24px 20px;
 }
 header .mobile_menu.open {
     display: flex;
 }
 header .mobile_menu a {
     padding: 12px 0;
-    font-size: 15px;
-    font-weight: 600;
-    border-bottom: 1px solid var(--color-line);
 }
 
 /* ========================================== main */
@@ -88,7 +69,7 @@ header .mobile_menu a {
 main {}
 main #hero {
     width: 100%;
-    min-height: 70vh;
+    height: 945px;
     background-image: url(../images/hero_bg.jpg);
     background-size: cover;
     background-position: center;
@@ -96,33 +77,26 @@ main #hero {
     align-items: center;
     padding: 0 240px;
 }
-main #hero .hero_text .eyebrow {
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 4px;
+main #hero .hero_text .suv_title {
+    font-size: 3.125rem; /* 50 */
+    font-weight: 500;
 }
-main #hero .hero_text h1 {
-    font-size: 44px;
-    font-weight: 800;
-    line-height: 1.15;
-    margin-bottom: 18px;
+main #hero .hero_text .main_title {
+    font-size: 4.375rem; /* 70 */
+    font-weight: 500;
+    margin-bottom: 25px;
 }
-main #hero .hero_text p {
-    font-size: 15px;
-    margin-bottom: 28px;
+main #hero .hero_text > p {
+    font-size: 1.125rem; /* 18 */
+    margin-bottom: 50px;
 }
-main #hero .hero_text .btn_pill {
-    display: inline-block;
-    padding: 12px 26px;
+main #hero .hero_text .show_btn {
+    display: flex; width: 131px; justify-content: center;
+    gap: 5px;
+    padding: 10px 15px;
     border-radius: 30px;
-    background-color: var(--color-point);
-    color: #fff;
-    font-size: 14px;
-    font-weight: 600;
-    transition: background-color 0.2s ease;
-}
-main #hero .hero_inner .hero_text .btn_pill:hover {
     background-color: var(--color-point-light);
+    color: #fff;
 }
 /* ------------------------------------------ 공통 섹션 헤드 */
 main .section_head {
@@ -135,12 +109,6 @@ main .section_head h2 {
     font-size: 24px;
     font-weight: 800;
 }
-main .see_all {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--color-gray);
-}
-
 /* ------------------------------------------ best sellers */
 main #best {
     width: 100%;
@@ -148,195 +116,233 @@ main #best {
 }
 main #best .wrap .best_grid {
     display: flex;
-    gap: 28px;
+    gap: 40px;
 }
 main #best .wrap .best_grid .best_photo {
-    flex: 1.1;
-    width: 100%; height: 661px;
+    flex: 1;
+    min-width: 0;
+    height: auto;
+    aspect-ratio: 806 / 661;
+
     background-image: url(../images/best1.png);
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 13px;
 }
 main #best .wrap .best_grid .best_right {
-    flex: 1.6;
-    display: flex; justify-content: end;
+    flex: 1.13;
+    min-width: 0;
+    display: flex;
+    justify-content: end;
     flex-direction: column;
+}
+main #best .wrap .best_grid .best_right .section_head h2{
+    font-size: 1.75rem; /* 28 */
+    font-weight: 500;
+    line-height: 120%;
+    margin-bottom: 6px;
 }
 main #best .wrap .best_grid .best_right .best_list {
     display: flex;
-    gap: 18px;
+    justify-content: space-between;
+    gap: 30px;
+    width: 100%;
 }
 main #best .wrap .best_grid .best_right .best_list .product_card {
-    flex: 1;
     display: flex;
-    flex-direction: column;
+    flex-flow: column nowrap;
+    gap: 10px;
 }
-main #best .wrap .best_grid .best_right .best_list .product_card .product_thumb {
-    aspect-ratio: 1 / 1;
-    border-radius: 2px;
-    margin-bottom: 12px;
-    background-color: var(--color-placeholder);
-    color: #888;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 12px;
-    padding: 12px;
+main #best .wrap .best_grid .best_right .best_list .product_card p {
+    width: 100%;
+    aspect-ratio: 282 / 366;
+    overflow: hidden;
+    transition: border-radius 0.4s ease;
+}
+main #best .wrap .best_grid .best_right .best_list .product_card p img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1);
+    transition: transform 0.4s ease;
+    display: block;
+}
+main #best .wrap .best_grid .best_right .best_list .product_card:hover p img {
+    transform: scale(1.1);
+}
+main #best .wrap .best_grid .best_right .best_list .product_card:hover p {
+    border-radius: 50px 0 50px 0;
+    
+}
+main #best .wrap .best_grid .best_right .best_list .product_card .content {
+    display: flex; gap: 15px;
+    flex-flow: column wrap;
+    padding: 10px;
 }
 main #best .wrap .best_grid .best_right .best_list .product_card h3 {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 6px;
-}
-
-/* ------------------------------------------ 공통 상품 카드 요소 (concern, shop 재사용) */
-main .product_card .price {
-    font-size: 14px;
-    font-weight: 700;
-}
-main .product_card .price .tag {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 600;
-    color: #fff;
-    background-color: var(--color-point-light);
-    border-radius: 3px;
-    padding: 1px 6px;
-    margin-left: 6px;
-}
-main .product_card .price .old_price {
-    color: #999;
-    text-decoration: line-through;
-    font-weight: 400;
-    font-size: 13px;
-    margin-left: 6px;
-}
-main .product_card .rating {
-    font-size: 12px;
-    color: var(--color-point-light);
+    font-size: 1.125rem; /* 18 */
 }
 
 /* ------------------------------------------ campaign / retinol */
 main #campaign {
+    position: relative;
     width: 100%;
-    background-color: #b0b0b0;
-    color: #fff;
-    padding: 80px 0 0;
+    height: 637px;
+
+    background-image: url(../images/event_bg.jpg);
+    background-size: 100% auto;
+    background-position: center top;
+    background-repeat: no-repeat;
 }
+main #campaign .wrap {
+    position: relative;
+}
+/* 배너 텍스트 */
 main #campaign .campaign_inner {
     max-width: var(--maxw);
     margin: 0 auto;
-    padding: 0 24px 60px;
+    padding: 70px 0 0;
+}
+main #campaign .campaign_inner > * {
+    color: #fff;
 }
 main #campaign .campaign_inner h2 {
-    font-size: 34px;
-    font-weight: 800;
+    font-size: 3.125rem;/* 50 */
+    font-weight: 500;
     margin-bottom: 6px;
+    letter-spacing: -4px;
+}
+main #campaign .campaign_inner h2 span {
+    font-size: 4.375rem;/* 70 */
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: -4px;
 }
 main #campaign .campaign_inner .sub {
-    font-size: 15px;
-    font-weight: 600;
-    opacity: 0.9;
-    margin-bottom: 14px;
+    font-size: 48px;
+    font-weight: 500;
+    padding-bottom: 20px;
 }
-main #campaign .campaign_inner .shop_now {
-    font-size: 13px;
-    font-weight: 700;
-    text-decoration: underline;
-}
+
+/* 카드 3개 */
 main #campaign .campaign_grid {
-    max-width: var(--maxw);
-    margin: 0 auto;
-    padding: 0 24px 64px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    position: absolute;
+    top: 200%;
+    left: 71%;
+    transform: translateX(-50%);
+    width: var(--maxw);
+    display: flex;
+    gap: 15px;
 }
 main #campaign .campaign_grid .campaign_card {}
-main #campaign .campaign_grid .campaign_card figure {
-    aspect-ratio: 3 / 4;
-    border-radius: 2px;
-    margin-bottom: 14px;
-    background-color: var(--color-placeholder);
-    color: var(--color-gray);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+/* 카드 이미지 */
+main #campaign .campaign_grid .campaign_card > p:first-child {
+    width: 445px;
+    height: 517px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
 }
-main #campaign .campaign_grid .campaign_card h3 {
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 4px;
+main #campaign .campaign_grid .campaign_card > p:first-child img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-main #campaign .campaign_grid .campaign_card p.desc {
-    font-size: 12.5px;
-    color: var(--color-gray);
+main #campaign .campaign_grid .campaign_card > p:first-child .hover {
+    position: absolute;
+    left: 0; top: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+main #campaign .campaign_grid .campaign_card:hover > p:first-child .hover {
+    opacity: 1;
+}
+
+/* ======================================================================= 카드 텍스트 (재사용) */
+main .campaign_content h3 {
+    color: var(--color-ink);
+    font-size: 1.125rem;/* 18 */
     margin-bottom: 10px;
 }
-main #campaign .campaign_grid .campaign_card .price {
-    font-size: 14px;
-    font-weight: 700;
-    color: #fff;
+main .campaign_content p.desc {
+    font-size: 0.875rem;/* 14 */
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--color-gray-line);
 }
-main #campaign .campaign_grid .campaign_card .rating {
-    font-size: 12px;
-    color: #fff;
-    opacity: 0.85;
+main .campaign_content .price {
+    color: var(--color-ink);
+    font-size: 1.125rem;/* 18 */
+    display: flex; gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+main .campaign_content .price .old_price {
+    color: var(--color-gray);
+    text-decoration: line-through;
+
+}
+main .campaign_content .rating {
+    font-size: 0.813rem;/* 13 */
+}
+main .campaign_content .rating > span {
+    color: var(--color-point-light);
 }
 
 /* ------------------------------------------ shop by concern */
 main #concern {
     width: 100%;
-    padding: 64px 0;
+    padding:580px 0 64px;
 }
 main #concern .wrap .concern_title {
     text-align: center;
-    font-size: 20px;
-    font-weight: 800;
-    margin-bottom: 24px;
+    font-size: 1.75rem; /* 28 */
+    font-weight: 500;
+    margin-bottom: 30px;
 }
 main #concern .wrap .concern_title .point {
     color: var(--color-point);
+    font-weight: 500;
 }
 main #concern .wrap .tabs {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 36px;
+    gap: 55px;
+    margin-bottom: 40px;
 }
 main #concern .wrap .tabs .tab {
-    padding: 9px 20px;
-    border-radius: 20px;
-    border: 1px solid var(--color-line);
-    color: var(--color-gray);
-    font-size: 13.5px;
-    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 1.125rem; /* 18 */
 }
 main #concern .wrap .tabs .tab.active {
-    background-color: var(--color-point);
-    border-color: var(--color-point);
+    background-color: var(--color-point-light);
+    border-color: var(--color-point-light);
     color: #fff;
 }
 main #concern .wrap .concern_grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap: 60px;
 }
 main #concern .wrap .concern_grid .product_card .concern_thumb {
-    aspect-ratio: 1 / 1;
-    border-radius: 2px;
-    margin-bottom: 12px;
-    background-color: var(--color-placeholder);
+    margin-bottom: 20px;
+    overflow: hidden;
 }
-main #concern .wrap .concern_grid .product_card h3 {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 6px;
+main #concern .wrap .concern_grid .product_card .concern_thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+main #concern .wrap .concern_grid .product_card:hover .concern_thumb img {
+    transform: scale(1.1);
 }
 
 /* ------------------------------------------ shop (사이드바 + 상품) */
