@@ -1,5 +1,17 @@
 /* 이니스프리 js */
 
+
+// ================================================================ 헤더 배경
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if (window.scrollY > 0) {
+        header.classList.add('blur');
+    } else {
+        header.classList.remove('blur');
+    }
+});
+
+// ============================================================================ 피부고민별 섹션
 const tabs = document.querySelectorAll('.tabs .tab');
 const concernList = document.querySelector('#concernList');
 
@@ -228,7 +240,7 @@ for (let tab of tabs) {
 const activeTab = document.querySelector('.tabs .active');
 showProducts(activeTab.textContent.trim());
 
-// =============================================================== 제품종류별섹션
+// ================================================================================== 제품종류별섹션
 
 const shopCats = document.querySelectorAll('.shop_cats .cat_pill');
 const shopProducts = document.querySelector('#shopProducts');
@@ -292,7 +304,7 @@ const shopData = {
         {
             img: './images/shop3_1.png',
             name: '포레스트 포맨 올인원 에센스 100mL',
-            desc: '피지·모공부터 진정과 탄력까지 피부 고민에 맞게 케어하는 올인원 에센스',
+            desc: '피지·모공부터 진정과 탄력까지 올인원 에센스',
             price: '29,000원',
             oldPrice: '',
             rating: '4.8 · 후기 999+'
@@ -300,7 +312,7 @@ const shopData = {
         {
             img: './images/shop3_2.png',
             name: '포레스트 포맨 쉐이빙 폼 클렌징 150g',
-            desc: '쉐이빙과 클렌징을 한 번에 해결하고 상쾌한 쿨링감을 선사하는 듀얼 클렌저',
+            desc: '쉐이빙과 클렌징을 한 번에 해결하고 쿨링감을 선사하는 듀얼 클렌저',
             price: '13,000원',
             oldPrice: '',
             rating: '4.8 · 후기 4,410'
@@ -308,7 +320,7 @@ const shopData = {
         {
             img: './images/shop3_3.png',
             name: '포레스트 포맨 프리미엄 스킨케어 세트',
-            desc: '탄력 저하와 칙칙한 피부톤을 케어하는 고보습 안티에이징 2종 세트',
+            desc: '탄력 저하와 칙칙한 피부톤 케어 고보습 안티에이징 2종 세트',
             price: '38,500원',
             oldPrice: '55,000원',
             rating: '4.8 · 후기 1,082'
@@ -386,3 +398,40 @@ for (let cat of shopCats) {
 
 const activeCat = document.querySelector('.shop_cats .active');
 showShopProducts(activeCat.dataset.category);
+
+// ============================================================================= 스크롤트리거 시작
+
+// ScrollTrigger 플러그인 등록
+gsap.registerPlugin(ScrollTrigger);
+
+const heroSwiper = new Swiper('.hero_swiper', {
+    slidesPerView: 1,
+    rewind: true,
+
+    autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+    },
+    on: {
+        init: function () {
+            gsap.to('.swiper-slide-active .hero_text', {
+                opacity: 1,
+                y: -20,
+                duration: 2.5,
+            });
+        },
+        slideChangeTransitionStart: function () {
+            gsap.set('.hero_text', {
+                opacity: 0,
+                y: 20,
+            });
+        },
+        slideChangeTransitionEnd: function () {
+            gsap.to('.swiper-slide-active .hero_text', {
+                opacity: 1,
+                y: -20,
+                duration: 2.5,
+            });
+        }
+    }
+});

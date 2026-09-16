@@ -12,7 +12,7 @@ img { max-width: 100%; display: block; }
     margin: 0 auto;
 }
 .shop_all {
-    display: flex; gap: 5px;
+    display: flex; gap: 5px; flex-flow: row nowrap;
     align-items: center;
 }
 
@@ -23,6 +23,11 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
+}
+header.blur {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
 }
 header .header_inner {
     max-width: var(--maxw);
@@ -66,18 +71,46 @@ header .mobile_menu a {
     padding: 12px 0;
 }
 
-/* ========================================== main */
+/* ================================================== main */
 /* ------------------------------------------ hero */
 main {}
 main #hero {
     width: 100%;
     height: 945px;
-    background-image: url(../images/hero_bg.jpg);
-    background-size: cover;
-    background-position: center;
+}
+main #hero .hero_swiper {
+    width: 100%;
+    height: 100%;
+}
+main #hero .swiper-wrapper {
+    width: 100%;
+    height: 100%;
+}
+main #hero .swiper-slide {
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     padding: 0 240px;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+main #hero .swiper-slide:nth-child(1) {
+    background-image: url(../images/hero_bg.jpg);
+}
+main #hero .swiper-slide:nth-child(2) {
+    background-image: url(../images/hero_bg2.jpg);
+}
+main #hero .swiper-slide:nth-child(3) {
+    background-image: url(../images/hero_bg.jpg);
+}
+main #hero .swiper-slide:nth-child(4) {
+    background-image: url(../images/hero_bg2.jpg);
+}
+main #hero .hero_text {
+    opacity: 0;
 }
 main #hero .hero_text .suv_title {
     font-size: 3.125rem; /* 50 */
@@ -99,6 +132,9 @@ main #hero .hero_text .show_btn {
     border-radius: 30px;
     background-color: var(--color-point-light);
     color: #fff;
+}
+main #hero .hero_text .show_btn {
+    white-space: nowrap;
 }
 /* ------------------------------------------ 공통 섹션 헤드 */
 main .section_head {
@@ -462,17 +498,17 @@ main #shop .wrap .shop_grid .shop_cats .cat_pill.active:hover {
 
     color: #fff;
 }
-/* ------------------------------------------ jeju */
+/* ---------------------------------------------------------- jeju */
 main #jeju {
     width: 100%;
-    height: 388px;
     max-width: 1754px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding-bottom: 140px;
 }
 main #jeju .jeju_photo {
-    height: 100%;
+    height: 388px;
     background-image: url(../images/jeju_photo.png);
     background-size: cover;
     background-position: center;
@@ -493,16 +529,16 @@ main #jeju .jeju_content {
     padding: 0 0 0 50px;
     display: flex;
     flex-direction: column;
-    justify-content: s;
+    justify-content: space-between;
 }
 main #jeju .jeju_content .kicker {
-    font-size: 1.125rem;
-    margin-bottom: 8px;
-}
-main #jeju .jeju_content h2 {
     font-size: 1.75rem;
     font-weight: 500;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+main #jeju .jeju_content h2 {
+    font-size: 1.125rem;
+    margin-bottom: 8px;
 }
 main #jeju .jeju_content .btn_outline {
     display: inline-block;
@@ -512,6 +548,7 @@ main #jeju .jeju_content .btn_outline {
     color: var(--color-point-light);
     border-radius: 24px;
     margin-bottom: 28px;
+    transition: 0.3s ease;
 }
 main #jeju .jeju_content .jeju_links a {
     display: flex;
@@ -527,9 +564,13 @@ main #jeju .jeju_content .jeju_links a img {
     transition: 0.3s ease;
 }
 /* 호버 */
+main #jeju .jeju_content .btn_outline:hover {
+    background-color: var(--color-point-light);
+    color: #fff;
+}
 main #jeju .jeju_content .jeju_links a:hover {
     color: var(--color-ink);
-    border-bottom-color: var(--color-point);
+    border-bottom-color: var(--color-point-light);
 }
 main #jeju .jeju_content .jeju_links a:hover img {
     opacity: 1;
@@ -537,96 +578,134 @@ main #jeju .jeju_content .jeju_links a:hover img {
 
 /* ------------------------------------------ store banner */
 main #store {
-    width: 100%;
-    min-height: 220px;
-    background-color: #999;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
+    position: relative;
+    overflow: hidden;
+    min-height: 288px;
+    border-radius: 50px 50px 0 0;
+    display: flex; flex-flow: column nowrap;
+    justify-content: center; align-items: center;
+    gap: 30px;
 }
-main #store .logo_lg {
-    font-size: 26px;
-    font-weight: 800;
-    letter-spacing: 1px;
+main #store::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url(../images/store_bg.png) center / cover;
+    transition: transform 0.5s ease;
+}
+main #store::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: 0.5s ease;
+}
+main #store:hover::before {
+    transform: scale(1.05);
+}
+main #store:hover::after {
+    background: rgba(0, 0, 0, 0.3);
+}
+main #store > * {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    
 }
 main #store .store_desc {
-    font-size: 15px;
+    font-size: 1.75rem;
+    font-weight: 500;
 }
 main #store .btn_pill {
-    background-color: #fff;
-    color: #555;
-    padding: 12px 26px;
-    border-radius: 30px;
-    font-size: 14px;
-    font-weight: 600;
+    background-color: var(--color-point);
+}
+main #store .btn_pill {
+    background-color: var(--color-point);
+    border-radius: 50px;
+    padding: 10px 18px;
+    display: flex; align-items: center;
+    transition: 0.5s ease;
+}
+main #store .btn_pill img {
+    width: 13px;
+}
+main #store:hover .btn_pill {
+    background-color: var(--color-point-light)
 }
 
 /* ============================================ footer */
-footer {
+/* footer */
+#footer {
     width: 100%;
+    min-height: 440px;
     background-color: #111;
-    color: #ccc;
-    padding: 48px 0 24px;
-    font-size: 13px;
+    color: #fff;
 }
-footer .wrap .footer_top {
+#footer .footer_bg {
+    width: 100%;
+    max-width: 1754px;
+    margin: 0 auto;
+    padding: 120px 0 70px;
+}
+/* footer top */
+#footer .footer_top {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 32px;
-    margin-bottom: 32px;
+    align-items: flex-start;
 }
-footer .wrap .footer_top .footer_brand .footer_logo {
-    font-size: 22px;
-    font-weight: 800;
+/* 오른쪽 정보 */
+#footer .footer_info {
+    display: flex;
+    gap: 150px;
+}
+#footer .footer_info h3 {
+    margin-bottom: 28px;
+    font-size: 1rem;
+    font-weight: 400;
     color: #fff;
-    margin-bottom: 14px;
 }
-footer .wrap .footer_top .footer_brand .footer_social {
+#footer .footer_info p {
+    font-size: 0.875rem;
+    line-height: 1.8;
+    color: #ddd;
+}
+/* SNS */
+#footer .footer_follow .sns {
+    display: grid;
+    grid-template-columns: repeat(2, 32px);
+    gap: 10px;
+}
+#footer .footer_follow .sns a {
+    width: 32px;
+    height: 32px;
+}
+#footer .footer_follow .sns img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+/* footer bottom */
+#footer .footer_bottom {
     display: flex;
-    gap: 12px;
-    margin-top: 8px;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 50px;
 }
-footer .wrap .footer_top .footer_brand .footer_social span {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: #222;
-    color: #ccc;
-    font-size: 12px;
+#footer .copyright p {
+    margin-bottom: 8px;
+    font-size: 0.875rem;/* 14 */
+    color: #ddd;
+}
+#footer .footer_links {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    gap: 50px;
 }
-footer .wrap .footer_top .footer_cols {
-    display: flex;
-    gap: 64px;
-    flex-wrap: wrap;
+#footer .footer_links a {
+    color: #ddd;
+    font-size: 0.875rem;/* 14 */
+    white-space: nowrap;
+    transition: 0.3s ease;
 }
-footer .wrap .footer_top .footer_cols .footer_col h4 {
+#footer .footer_links a:hover {
     color: #fff;
-    font-size: 13px;
-    margin-bottom: 12px;
-}
-footer .wrap .footer_top .footer_cols .footer_col p,
-footer .wrap .footer_top .footer_cols .footer_col a {
-    display: block;
-    color: #999;
-    margin-bottom: 6px;
-    line-height: 1.7;
-}
-footer .wrap .footer_bottom {
-    border-top: 1px solid #292929;
-    padding-top: 20px;
-    color: #777;
-    font-size: 12px;
-}
-footer .wrap .footer_bottom .footer_bottom_links {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 12px;
 }

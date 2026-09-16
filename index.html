@@ -6,11 +6,20 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <title>INNISFREE</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" />
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/index.css">
     <link rel="stylesheet" href="./styles/var.css">
     <link rel="stylesheet" href="./styles/responsive.css">
+    <!--swiper 필수 css cdn 연결-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!--swiper 필수 JS cdn 연결-->
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="./scripts/index.js" defer></script>
 </head>
 
@@ -18,7 +27,7 @@
     <!-- ================헤더 -->
     <header>
         <div class="header_inner">
-            <a class="logo" href="./index.html"><img src="./images/logo.png" alt=""></a>
+            <a class="logo" href="./index.html"><img src="./images/logo.svg" alt=""></a>
             <nav>
             <ul>
                 <li><a href="#">SHOP</a></li>
@@ -47,12 +56,54 @@
     <!-- ================== 메인시작 -->
     <main>
         <section id="hero">
-            <div class="hero_text">
-                <div class="suv_title">Green Tea Seed</div>
-                <h1 class="main_title">Hyaluronic Serum</h1>
-                <p>제주 녹차의 수분 에너지를 피부에 깊이 채우다</p>
-                <a class="show_btn" href="#">자세히 보기<img src="./images/arrow.svg" alt=""></a>
+             <div class="swiper hero_swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="hero_text">
+                    <div class="suv_title">Green Tea Seed</div>
+                    <h1 class="main_title">Hyaluronic Serum</h1>
+                    <p>제주 녹차의 수분 에너지를 피부에 깊이 채우다</p>
+                    <a class="show_btn" href="#">
+                        자세히 보기
+                        <img src="./images/arrow.svg" alt="">
+                    </a>
+                </div>
             </div>
+            <div class="swiper-slide">
+                <div class="hero_text">
+                    <div class="suv_title">Vitamin C</div>
+                    <h1 class="main_title">Capsule Serum</h1>
+                    <p>비타민 C의 맑은 에너지를 피부에 채우다</p>
+                    <a class="show_btn" href="#">
+                        자세히 보기
+                        <img src="./images/arrow.svg" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="hero_text">
+                    <div class="suv_title">Green Tea Seed</div>
+                    <h1 class="main_title">Hyaluronic Serum</h1>
+                    <p>제주 녹차의 수분 에너지를 피부에 깊이 채우다</p>
+                    <a class="show_btn" href="#">
+                        자세히 보기
+                        <img src="./images/arrow.svg" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="hero_text">
+                    <div class="suv_title">Vitamin C</div>
+                    <h1 class="main_title">Capsule Serum</h1>
+                    <p>비타민 C의 맑은 에너지를 피부에 채우다</p>
+                    <a class="show_btn" href="#">
+                        자세히 보기
+                        <img src="./images/arrow.svg" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
         </section><!-- e: 히어로 -->
 
         <section id="best">
@@ -197,8 +248,8 @@
             <div class="jeju_photo"><p><span>FROM </span>JEJU</p></div>
             <div class="jeju_content">
                 <div class="jeju_top">
-                    <h2>자연에서 피부의 답을 찾다</h2>
-                    <div class="kicker">제주의 자연에서 시작된 이야기</div>
+                    <h2>제주의 자연에서 시작된 이야기</h2>
+                    <div class="kicker">자연에서 피부의 답을 찾다</div>
                     <a class="btn_outline" href="#">VIEW MORE</a>
                 </div>
                 <div class="jeju_links">
@@ -206,48 +257,58 @@
                     <a href="#">지속가능한 발걸음의 방향 <img src="./images/arrow_black.svg" alt=""></a>
                 </div>
             </div>
-        </section>
+        </section><!-- e: 제주-브랜드 -->
 
         <section id="store">
-            <div class="logo_lg">INNISFREE</div>
-            <div class="store_desc">가까운 이니스프리 매장을 찾아보세요</div>
-            <a class="btn_pill" href="#">FIND A STORE</a>
+            <div class="store_desc">FIND A STORE</div>
+            <a class="btn_pill" href="#">가까운 이니스프리 매장을 찾아보세요<img src="./images/arrow.svg" alt=""></a>
         </section>
     </main><!-- e: 메인 -->
 
-    <footer>
-        <div class="wrap">
+    <footer id="footer">
+        <div class="footer_bg">
             <div class="footer_top">
-            <div class="footer_brand">
-                <div class="footer_logo">INNISFREE</div>
-                <div class="footer_social">
-                    <span>IG</span><span>TT</span><span>FB</span>
+                <div class="footer_logo"><img src="./images/logo_w.svg" alt=""></div>
+                <div class="footer_info">
+                    <div class="footer_company">
+                        <h3>COMPANY</h3>
+                        <p>
+                            (주)이니스프리<br>
+                            080-380-0114 대표이사 최민정<br>
+                            서울특별시 용산구<br>
+                            한강대로 100 7층
+                        </p>
+                    </div>
+                    <div class="footer_cs">
+                        <h3>CUSTOMER SERVICE</h3>
+                        <p>
+                            080-380-0114<br>
+                            09:00 — 18:00<br>
+                            Lunch 12:00 — 13:00<br>
+                            주말 및 공휴일 휴무
+                        </p>
+                    </div>
+                    <div class="footer_follow">
+                        <h3>FOLLOW</h3>
+                        <div class="sns">
+                            <a href="#"><img src="./images/inst.svg" alt="인스타그램"></a>
+                            <a href="#"><img src="./images/tik.svg" alt="틱톡"></a>
+                            <a href="#"><img src="./images/you.svg" alt="유튜브"></a>
+                            <a href="#"><img src="./images/face.svg" alt="페이스북"></a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="footer_cols">
-                <div class="footer_col">
-                    <h4>COMPANY</h4>
-                    <p>(주)이니스프리</p>
-                    <p>080-380-0114 대표이사 최동석</p>
-                    <p>서울특별시 용산구</p>
-                    <p>한강대로 100 7층</p>
-                </div>
-                <div class="footer_col">
-                    <h4>CUSTOMER SERVICE</h4>
-                    <p>080-380-0114</p>
-                    <p>09:00 — 18:00</p>
-                    <p>Lunch 12:00 — 13:00</p>
-                    <p>토요일 공휴일 휴무</p>
-                </div>
-            </div>
             </div>
             <div class="footer_bottom">
-                <div>© INNISFREE INC. ALL RIGHTS RESERVED.</div>
-                <div>사업자등록번호 106-86-68127 | 통신판매신고번호 2018-서울용산-0014</div>
-                <div class="footer_bottom_links">
+                <div class="copyright">
+                    <p>© INNISFREE INC. ALL RIGHTS RESERVED.</p>
+                    <p>사업자등록번호 106-86-68127　 통신판매업신고번호 2018-서울용산-0014</p>
+                    <p>innisfree@innisfree.com</p>
+                </div>
+                <div class="footer_links">
                     <a href="#">서비스 이용약관</a>
                     <a href="#">개인정보처리방침</a>
-                    <a href="#">영상정보처리기기 운영·관리방침</a>
+                    <a href="#">영상정보처리기기 운영/관리 방침</a>
                     <a href="#">위치기반서비스 이용약관</a>
                     <a href="#">공지사항</a>
                 </div>
