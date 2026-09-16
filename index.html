@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <title>INNISFREE</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/index.css">
     <link rel="stylesheet" href="./styles/var.css">
@@ -51,7 +51,7 @@
                 <div class="suv_title">Green Tea Seed</div>
                 <h1 class="main_title">Hyaluronic Serum</h1>
                 <p>제주 녹차의 수분 에너지를 피부에 깊이 채우다</p>
-                <a class="show_btn" href="#">자세히 보기<img src="./images/arrow.png" alt=""></a>
+                <a class="show_btn" href="#">자세히 보기<img src="./images/arrow.svg" alt=""></a>
             </div>
         </section><!-- e: 히어로 -->
 
@@ -62,7 +62,7 @@
                     <div class="best_right">
                         <div class="section_head">
                             <h2>BEST SELLERS</h2>
-                            <a class="shop_all" href="#">SHOP ALL <img src="./images/arrow_black.png" alt=""></a>
+                            <a class="shop_all" href="#">SHOP ALL <img src="./images/arrow_black.svg" alt=""></a>
                         </div>
                         <div class="best_list">
                             <div class="product_card">
@@ -97,7 +97,7 @@
                 <div class="campaign_inner">
                     <h2><span>RETINOL </span>SKIN WEEK</h2>
                     <div class="sub">30% OFF</div>
-                    <a class="shop_all" href="#">SHOP NOW <img src="./images/arrow.png" alt=""></a>
+                    <a class="shop_all" href="#">SHOP NOW <img src="./images/arrow.svg" alt=""></a>
                 </div>
                 <div class="campaign_grid">
                     <div class="campaign_card">
@@ -152,68 +152,9 @@
                 </div>
                 <div class="section_head">
                     <div></div>
-                    <a class="shop_all" href="#">SHOP ALL <img src="./images/arrow_black.png" alt=""></a>
+                    <a class="shop_all" href="#">SHOP ALL <img src="./images/arrow_black.svg" alt=""></a>
                 </div>
-                <div class="concern_grid">
-                    <div class="product_card">
-                        <p class="concern_thumb">
-                            <img src="./images/concern2_1.png" alt="" class="normal">
-                        </p>
-                        <div class="campaign_content">
-                            <h3>그린티 씨드 히알루론산 세럼</h3>
-                            <p class="desc">수분을 채워 촉촉하고 건강한 피부를 완성</p>
-                            <div class="price">
-                                25,000원 <span class="old_price">30,000원</span>
-                            </div>
-                            <div class="rating">
-                                <span>★</span> 4.9 · 후기 900+
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product_card">
-                        <p class="concern_thumb">
-                            <img src="./images/concern2_2.png" alt="" class="normal">
-                        </p>
-                        <div class="campaign_content">
-                            <h3>레티놀 시카 모공 흔적 앰플</h3>
-                            <p class="desc">피부결과 모공을 매끈하게 케어해주는 앰플</p>
-                            <div class="price">
-                                45,460원 <span class="old_price">55,000원</span>
-                            </div>
-                            <div class="rating">
-                                <span>★</span> 4.8 · 후기 900+
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product_card">
-                        <p class="concern_thumb">
-                            <img src="./images/concern2_3.png" alt="" class="normal">
-                        </p>
-                        <div class="campaign_content">
-                            <h3>비자 트러블 폼 클렌징</h3>
-                            <p class="desc">피부 노폐물을 깨끗하게 씻어내고 편안하게 케어</p>
-                            <div class="price">10,000원 <span class="old_price">12,000원</span></div>
-                            <div class="rating"><span>★</span> 4.9 · 후기 900+</div>
-                        </div>
-                    </div>
-                    <div class="product_card">
-                        <p class="concern_thumb">
-                            <img src="./images/concern2_4.png" alt="" class="normal">
-                        </p>
-                        <div class="campaign_content">
-                            <h3>비자 트러블 토너</h3>
-                            <p class="desc">청량한 워터 제형이 산뜻하게 흡수되어 매끈한 결을 선사</p>
-                            <div class="price">
-                                13,000원 <span class="old_price">19,000원</span>
-                            </div>
-                            <div class="rating">
-                                <span>★</span> 4.9 · 후기 900+
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="concern_grid" id="concernList"></div>
             </div>
         </section><!-- e: 피부별 -->
 
@@ -221,50 +162,48 @@
             <div class="wrap">
                 <div class="shop_grid">
                     <div class="shop_cats">
-                        <div class="cat_pill active"><span class="cat_dot"></span>스킨케어</div>
-                        <div class="cat_pill"><span class="cat_dot"></span>메이크업</div>
-                        <div class="cat_pill"><span class="cat_dot"></span>남성</div>
-                        <div class="cat_pill"><span class="cat_dot"></span>헤어·바디·소품</div>
+                        <h2>SHOP</h2>
+                        <div class="cat_pill active" data-category="스킨케어">
+                            <span class="cat_dot"></span>
+                            스킨케어
+                        </div>
+                        <div class="cat_pill" data-category="메이크업">
+                            <span class="cat_dot"></span>
+                            메이크업
+                        </div>
+                        <div class="cat_pill" data-category="남성">
+                            <span class="cat_dot"></span>
+                            남성
+                        </div>
+                        <div class="cat_pill" data-category="헤어·바디·소품">
+                            <span class="cat_dot"></span>
+                            헤어·바디·소품
+                        </div>
                     </div>
                     <div class="shop_right">
+                        <div class="shop_products" id="shopProducts"></div>
                         <div class="section_head">
-                            <h2>SHOP</h2>
-                            <a class="see_all" href="#">SHOP ALL ›</a>
-                        </div>
-                        <div class="shop_products">
-                            <div class="product_card">
-                                <div class="product_thumb st_1"></div>
-                                <h3>블랙티 앰플 대용량 스페셜 세트</h3>
-                                <div class="price">41,300원 <span class="old_price">59,000원</span></div>
-                                <div class="rating">★ 4.9 · 후기 900+</div>
-                            </div>
-                            <div class="product_card">
-                                <div class="product_thumb st_2"></div>
-                                <h3>그린티 수분 세럼 마카롱 에디션 130mL</h3>
-                                <div class="price">33,750원 <span class="old_price">45,000원</span></div>
-                                <div class="rating">★ 4.9 · 후기 900+</div>
-                            </div>
-                            <div class="product_card">
-                                <div class="product_thumb st_3"></div>
-                                <h3>블랙티 유스 인핸싱 트리트먼트 에센스 75g</h3>
-                                <div class="price">20,880원 <span class="old_price">29,000원</span></div>
-                                <div class="rating">★ 4.9 · 후기 900+</div>
-                            </div>
+                            <a class="shop_all" href="#">
+                                SHOP ALL
+                                <img src="./images/arrow_black.svg" alt="">
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </section><!-- e: 제품종류별 -->
 
         <section id="jeju">
-            <div class="jeju_photo">FROM JEJU</div>
+            <div class="jeju_photo"><p><span>FROM </span>JEJU</p></div>
             <div class="jeju_content">
-                <div class="kicker">제주의 자연에서 시작된 이야기</div>
-                <h2>자연에서 피부의 답을 찾다</h2>
-                <a class="btn_outline" href="#">VIEW MORE</a>
+                <div class="jeju_top">
+                    <h2>자연에서 피부의 답을 찾다</h2>
+                    <div class="kicker">제주의 자연에서 시작된 이야기</div>
+                    <a class="btn_outline" href="#">VIEW MORE</a>
+                </div>
                 <div class="jeju_links">
-                    <a href="#">제주의 자연에서 발견한 피부를 위한 원료 <span>›</span></a>
-                    <a href="#">지속가능한 발걸음의 방향 <span>›</span></a>
+                    <a href="#">제주의 자연에서 발견한 피부를 위한 원료 <img src="./images/arrow_black.svg" alt=""></a>
+                    <a href="#">지속가능한 발걸음의 방향 <img src="./images/arrow_black.svg" alt=""></a>
                 </div>
             </div>
         </section>

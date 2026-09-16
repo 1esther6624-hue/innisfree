@@ -13,7 +13,9 @@ img { max-width: 100%; display: block; }
 }
 .shop_all {
     display: flex; gap: 5px;
+    align-items: center;
 }
+
 /* ============================= header */
 header {
     width: 100%;
@@ -91,7 +93,7 @@ main #hero .hero_text > p {
     margin-bottom: 50px;
 }
 main #hero .hero_text .show_btn {
-    display: flex; width: 131px; justify-content: center;
+    display: flex; width: 131px; justify-content: center; align-items: center;
     gap: 5px;
     padding: 10px 15px;
     border-radius: 30px;
@@ -233,9 +235,8 @@ main #campaign .campaign_inner .sub {
 main #campaign .campaign_grid {
     position: absolute;
     top: 200%;
-    left: 71%;
-    transform: translateX(-50%);
-    width: var(--maxw);
+    right: 0;
+    width: 1365px; 
     display: flex;
     gap: 15px;
 }
@@ -297,7 +298,7 @@ main .campaign_content .rating > span {
 /* ------------------------------------------ shop by concern */
 main #concern {
     width: 100%;
-    padding:580px 0 64px;
+    padding: 620px 0 140px;
 }
 main #concern .wrap .concern_title {
     text-align: center;
@@ -321,11 +322,6 @@ main #concern .wrap .tabs .tab {
     border-radius: 50px;
     font-size: 1.125rem; /* 18 */
 }
-main #concern .wrap .tabs .tab.active {
-    background-color: var(--color-point-light);
-    border-color: var(--color-point-light);
-    color: #fff;
-}
 main #concern .wrap .concern_grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -344,110 +340,199 @@ main #concern .wrap .concern_grid .product_card .concern_thumb img {
 main #concern .wrap .concern_grid .product_card:hover .concern_thumb img {
     transform: scale(1.1);
 }
+main #concern .wrap .tabs .tab {
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 1.125rem;
+    transition: 0.3s ease;
+}
+/* 활성 피부별 카테고리 */
+main #concern .wrap .tabs .tab.active {
+    border-color: var(--color-point-light);
+    background-color: var(--color-point-light);
+    color: #fff;
+}
+/* 피부별 카테고리 호버 */
+main #concern .wrap .tabs .tab:hover {
+    border-color: var(--color-point);
+    color: var(--color-point);
+}
+/* 활성 피부별 카테고리 호버 */
+main #concern .wrap .tabs .tab.active:hover {
+    border-color: var(--color-point);
+    background-color: var(--color-point);
+    color: #fff;
+}
 
 /* ------------------------------------------ shop (사이드바 + 상품) */
 main #shop {
     width: 100%;
-    padding: 64px 0;
+    padding: 64px 0 140px 0;
 }
 main #shop .wrap .shop_grid {
-    display: grid;
-    grid-template-columns: 180px 1fr;
+    display: flex;
     gap: 32px;
 }
 main #shop .wrap .shop_grid .shop_cats {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
+}
+main #shop .wrap .shop_grid .shop_cats > h2 {
+    font-size: 1.75rem;
+    font-weight: 500;
+    padding-bottom: 50px;
 }
 main #shop .wrap .shop_grid .shop_cats .cat_pill {
-    display: flex;
-    align-items: center;
+    display: flex; align-items: center;
     gap: 10px;
-    padding: 12px 14px;
-    border-radius: 24px;
-    border: 1px solid var(--color-line);
-    font-size: 13.5px;
-    font-weight: 600;
+    width: fit-content;
+    padding: 8px 14px 8px 8px;
+    border-radius: 30px;
+    border: 1px solid #bdbdbd;
+    background-color: #fff;
+    color: var(--color-gray);
+    font-size: 1.125rem;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 main #shop .wrap .shop_grid .shop_cats .cat_pill.active {
     border-color: var(--color-point-light);
-    color: var(--color-point);
+    background-color: var(--color-point-light);
+    color: #fff;
 }
 main #shop .wrap .shop_grid .shop_cats .cat_pill .cat_dot {
-    width: 20px;
-    height: 20px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    background-color: #e8f2e9;
-    flex: none;
-}
-main #shop .wrap .shop_grid .shop_right .shop_products {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-main #shop .wrap .shop_grid .shop_right .shop_products .product_card .product_thumb {
-    aspect-ratio: 4 / 5;
-    border-radius: 2px;
-    margin-bottom: 12px;
-    background-color: var(--color-placeholder);
-}
-main #shop .wrap .shop_grid .shop_right .shop_products .product_card h3 {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 6px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
+/* 아이콘 */
+main #shop .wrap .shop_grid .shop_cats .cat_pill[data-category="스킨케어"] .cat_dot {
+    background-image: url(../images/shop_menu1.png);
+}
+main #shop .wrap .shop_grid .shop_cats .cat_pill[data-category="메이크업"] .cat_dot {
+    background-image: url(../images/shop_menu2.png);
+}
+main #shop .wrap .shop_grid .shop_cats .cat_pill[data-category="남성"] .cat_dot {
+    background-image: url(../images/shop_menu3.png);
+}
+main #shop .wrap .shop_grid .shop_cats .cat_pill[data-category="헤어·바디·소품"] .cat_dot {
+    background-image: url(../images/shop_menu4.png);
+}
+main #shop .wrap .shop_grid .shop_right {
+    margin-left: auto;
+}
+main #shop .wrap .shop_grid .shop_right .section_head {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+main #shop .wrap .shop_grid .shop_right .shop_products {
+    display: flex; gap: 30px;
+}
+main #shop .wrap .shop_grid .shop_right .shop_products .product_card {
+    flex: 1;
+    min-width: 0;
+}
+main #shop .wrap .shop_grid .shop_right .shop_products .product_card .product_thumb {
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+main #shop .wrap .shop_grid .shop_right .shop_products .product_card .product_thumb img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.4s ease;
+}
+main #shop .wrap .shop_grid .shop_right .shop_products .product_card:hover .product_thumb img {
+    transform: scale(1.1);
+}
+/* 카테고리 호버 */
+main #shop .wrap .shop_grid .shop_cats .cat_pill:hover {
+    border-color: var(--color-point);
+    color: var(--color-point);
+}
+/* 활성 카테고리 호버 */
+main #shop .wrap .shop_grid .shop_cats .cat_pill.active:hover {
+    border-color: var(--color-point);
+    background-color: var(--color-point);
+
+    color: #fff;
+}
 /* ------------------------------------------ jeju */
 main #jeju {
     width: 100%;
+    height: 388px;
+    max-width: 1754px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: #f5f5f5;
 }
 main #jeju .jeju_photo {
-    min-height: 320px;
-    background-color: #c9c9c9;
-    color: #666;
-    font-weight: 800;
-    font-size: 22px;
-    display: flex;
-    align-items: flex-end;
-    padding: 24px;
+    height: 100%;
+    background-image: url(../images/jeju_photo.png);
+    background-size: cover;
+    background-position: center;
+    display: flex; align-items: flex-end;
+    padding: 20px 30px;
+}
+main #jeju .jeju_photo p {
+    color: #fff;
+    font-size: 4.375rem;
+    font-weight: 500;
+}
+main #jeju .jeju_photo p > span {
+    color: #fff;
+    font-size: 2.188rem;
 }
 main #jeju .jeju_content {
-    padding: 56px 48px;
+    height: 100%;
+    padding: 0 0 0 50px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: s;
 }
 main #jeju .jeju_content .kicker {
-    font-size: 13px;
-    color: var(--color-gray);
+    font-size: 1.125rem;
     margin-bottom: 8px;
 }
 main #jeju .jeju_content h2 {
-    font-size: 26px;
-    font-weight: 800;
+    font-size: 1.75rem;
+    font-weight: 500;
     margin-bottom: 20px;
 }
 main #jeju .jeju_content .btn_outline {
     display: inline-block;
     width: fit-content;
-    padding: 10px 22px;
-    border: 1px solid var(--color-ink);
+    padding: 15px 25px;
+    border: 1px solid var(--color-point-light);
+    color: var(--color-point-light);
     border-radius: 24px;
-    font-size: 13px;
-    font-weight: 600;
     margin-bottom: 28px;
 }
 main #jeju .jeju_content .jeju_links a {
     display: flex;
     justify-content: space-between;
-    padding: 16px 0;
-    border-top: 1px solid var(--color-line);
-    font-size: 14px;
-    font-weight: 600;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--color-gray-line);
+    color: var(--color-gray);
+    font-size: 1.438rem;
+    transition: 0.3s ease;
+}
+main #jeju .jeju_content .jeju_links a img {
+    opacity: 0.4;
+    transition: 0.3s ease;
+}
+/* 호버 */
+main #jeju .jeju_content .jeju_links a:hover {
+    color: var(--color-ink);
+    border-bottom-color: var(--color-point);
+}
+main #jeju .jeju_content .jeju_links a:hover img {
+    opacity: 1;
 }
 
 /* ------------------------------------------ store banner */
