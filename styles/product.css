@@ -1,0 +1,101 @@
+/* 상품페이지 */
+
+/* ============================= header */
+header {
+    width: 100%;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+header.blur {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+}
+header .header_inner {
+    max-width: var(--maxw);
+    height: 70px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header nav {
+    position: relative;
+}
+header nav ul {
+    display: flex;
+    gap: 100px;
+}
+header nav ul li {}
+header nav ul li .dropdown {
+    position: absolute;
+    top: 240%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 750px; height: 76px;
+    display: flex; align-items: center;
+    gap: 40px;
+    padding: 30px 50px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s ease;
+}
+header nav ul li:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+}
+header nav ul li:first-child .dropdown {
+    display: flex;
+    gap: 50px;
+}
+header nav ul li:first-child .dropdown {
+    display: flex; height: 255px;
+    gap: 50px;
+}
+header nav ul li:first-child .dropdown > div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-self: flex-start;
+    margin-top: 0;
+}
+header nav ul li:first-child .dropdown > div > a {
+    margin-bottom: 20px;
+}
+header nav ul li:first-child .dropdown > div > span {
+    font-size: 0.875rem;
+}
+header nav ul li .dropdown a {
+    position: relative;
+}
+header nav ul li .dropdown a::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -2px;
+    width: 0;
+    height: 0.5px;
+    background-color: #000;
+    transition: width 0.3s ease;
+}
+header nav ul li .dropdown a:hover::after {
+    width: 100%;
+}
+header nav ul li a {
+    color: var(--color-ink);
+    white-space: nowrap;
+}
+header .header_inner .nav_icons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+header .header_inner .nav_icons button {
+    font-size: 18px;
+    color: var(--color-ink);
+}
+
