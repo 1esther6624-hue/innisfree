@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./styles/index.css">
     <link rel="stylesheet" href="./styles/product.css">
     <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/product.js" defer></script>
 </head>
 <body>
     <!-- ============= 헤더 -->
@@ -76,9 +77,9 @@
                 </ul>
             </nav>
             <div class="nav_icons">
-                <button aria-label="검색"><img src="./images/search.png" alt=""></button>
-                <button aria-label="마이페이지"><img src="./images/login.png" alt=""></button>
-                <button aria-label="장바구니"><img src="./images/shop.png" alt=""></button>
+                <button aria-label="검색"><img src="./images/search.svg" alt=""></button>
+                <button aria-label="마이페이지"><img src="./images/login.svg" alt=""></button>
+                <button aria-label="장바구니"><img src="./images/shop.svg" alt=""></button>
                 <button class="menu_toggle" id="menuToggle" aria-label="메뉴 열기"><img src="./images/menu.png" alt=""></button>
             </div>
             
@@ -91,6 +92,15 @@
             <a href="#">EVENT</a>
         </div>
     </header>
+    <!-- ----------- 팝업 -->
+    <div class="people_popup" id="peoplePopup">
+        <button type="button" class="popup_close" id="popupClose"><img src="./images/close.svg" alt="닫기버튼"></button>
+        <div class="popup_icon">
+            <img src="./images/search.svg" alt="">
+        </div>
+        <p>지금 <span>5명의 고객님</span>이<br>이 제품을 함께 보고 있습니다</p>
+        <label><input type="checkbox">이 알람을 일주일 동안 보지 않기</label>
+    </div>
     <main id="product">
         <div class="product_wrap">
             <div class="product_left">
@@ -143,6 +153,10 @@
                         </div>
                     </div>
                 </div>
+                <div class="product_tab">
+                    <button type="button" class="active">Product Info</button>
+                    <button type="button">Review</button>
+                </div>
             </div>
             <div class="product_right">
                 <div class="product_info">
@@ -156,12 +170,14 @@
                     </div>
                     <div class="review_price">
                         <div class="review_wrap">
-                            <div class="star">
-                                <img src="./images/star.svg" alt="">
-                                <img src="./images/star.svg" alt="">
-                                <img src="./images/star.svg" alt="">
-                                <img src="./images/star.svg" alt="">
-                                <img src="./images/star.svg" alt="">
+                            <div class="review">
+                                <div class="star">
+                                    <img src="./images/star.svg" alt="">
+                                    <img src="./images/star.svg" alt="">
+                                    <img src="./images/star.svg" alt="">
+                                    <img src="./images/star.svg" alt="">
+                                    <img src="./images/star.svg" alt="">
+                                </div>
                                 <p>4.8</p>
                                 <p>+999</p>
                             </div>
@@ -186,7 +202,7 @@
                                 <dt>제품사용기한</dt>
                                 <dd>
                                     <span>29년 5월 21일</span>
-                                    <span class="dis">(보유 제품 중 가장 임박한 기한 기준입니다.)</span>
+                                    <p class="dis">(보유 제품 중 가장 임박한 기한 기준입니다.)</p>
                                 </dd>
                             </div>
                             <div>
@@ -210,7 +226,7 @@
                             </div>
                         </div>
                         <div class="buy_btn_wrap">
-                            <p class="heart_btn"><img src="" alt=""></p>
+                            <p class="heart_btn"><img src="./images/heart.svg" alt=""></p>
                             <button type="button" id="cart_btn">장바구니</button>
                             <button type="button" id="buy_btn">구매하기</button>
                         </div>
@@ -219,5 +235,55 @@
             </div>
         </div><!-- e: wrap -->
     </main>
+    <footer id="footer">
+        <div class="footer_bg">
+            <div class="footer_top">
+                <div class="footer_logo"><img src="./images/logo_w.svg" alt=""></div>
+                <div class="footer_info">
+                    <div class="footer_company">
+                        <h3>COMPANY</h3>
+                        <p>
+                            (주)이니스프리<br>
+                            080-380-0114 대표이사 최민정<br>
+                            서울특별시 용산구<br>
+                            한강대로 100 7층
+                        </p>
+                    </div>
+                    <div class="footer_cs">
+                        <h3>CUSTOMER SERVICE</h3>
+                        <p>
+                            080-380-0114<br>
+                            09:00 — 18:00<br>
+                            Lunch 12:00 — 13:00<br>
+                            주말 및 공휴일 휴무
+                        </p>
+                    </div>
+                    <div class="footer_follow">
+                        <h3>FOLLOW</h3>
+                        <div class="sns">
+                            <a href="#"><img src="./images/inst.svg" alt="인스타그램"></a>
+                            <a href="#"><img src="./images/tik.svg" alt="틱톡"></a>
+                            <a href="#"><img src="./images/you.svg" alt="유튜브"></a>
+                            <a href="#"><img src="./images/face.svg" alt="페이스북"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <div class="copyright">
+                    <p>© INNISFREE INC. ALL RIGHTS RESERVED.</p>
+                    <p>사업자등록번호 106-86-68127　 통신판매업신고번호 2018-서울용산-0014</p>
+                    <p>innisfree@innisfree.com</p>
+                </div>
+                <div class="footer_links">
+                    <a href="#">서비스 이용약관</a>
+                    <a href="#">개인정보처리방침</a>
+                    <a href="#">영상정보처리기기 운영/관리 방침</a>
+                    <a href="#">위치기반서비스 이용약관</a>
+                    <a href="#">공지사항</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
