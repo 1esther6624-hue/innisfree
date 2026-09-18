@@ -6,7 +6,10 @@
     <title>레티놀 시카 모공 흔적 앰플 | INNISFREE</title>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" />
     <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/var.css">
+    <link rel="stylesheet" href="./styles/index.css">
     <link rel="stylesheet" href="./styles/product.css">
+    <script src="./scripts/index.js" defer></script>
 </head>
 <body>
     <!-- ============= 헤더 -->
@@ -91,24 +94,51 @@
     <main id="product">
         <div class="product_wrap">
             <div class="product_left">
-                <p class="product_bg"><img src="" alt=""></p>
-                <p class="product_photo"><img src="" alt=""></p>
+                <p class="product_photo"><img src="./images/product_1.png" alt=""></p>
                 <div class="product_prv">
-                    <button type="button" id="prv_main"><img src="" alt=""></button>
-                    <button type="button" id="prv2"><img src="" alt=""></button>
-                    <button type="button" id="prv3"><img src="" alt=""></button>
-                    <button type="button" id="prv4"><img src="" alt=""></button>
-                    <button type="button" id="prv5"><img src="" alt=""></button>
+                    <button type="button" id="prv_main"><img src="./images/product_1_act.png" alt=""></button>
+                    <button type="button" id="prv2"><img src="./images/product_2.png" alt=""></button>
+                    <button type="button" id="prv3"><img src="./images/product_3.png" alt=""></button>
+                    <button type="button" id="prv4"><img src="./images/product_4.png" alt=""></button>
+                    <button type="button" id="prv5"><img src="./images/product_5.png" alt=""></button>
                 </div>
                 <div class="volume">
                     <p class="volume_title">이 제품의 다른 용량 구성</p>
                     <div class="volume_wrap">
                         <div class="volume_pd">
-                            <p><img src="" alt=""></p>
-                            <p class="pd_title">레티놀 시카 모공 흔적 앰플(50mL)</p>
-                            <div class="price_wrap">
-                                <p class="v_price">45,460원</p>
-                                <p class="v_old_price">55,000원</p>
+                            <p>
+                                <img src="./images/product_1.png" alt="">
+                            </p>
+                            <div class="volume_text">
+                                <p class="v_title">레티놀 시카 모공 흔적 앰플(50mL)</p>
+                                <div class="v_price_wrap">
+                                    <p class="v_price">45,460원</p>
+                                    <del class="v_old_price">55,000원</del>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="volume_pd">
+                            <p>
+                                <img src="./images/product_1.png" alt="">
+                            </p>
+                            <div class="volume_text">
+                                <p class="v_title">레티놀 시카 모공 흔적 앰플(80mL)</p>
+                                <div class="v_price_wrap">
+                                    <p class="v_price">57,000원</p>
+                                    <del class="v_old_price">76,000원</del>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="volume_pd">
+                            <p>
+                                <img src="./images/product_1.png" alt="">
+                            </p>
+                            <div class="volume_text">
+                                <p class="v_title">레티놀 시카 모공 흔적 앰플(30mL)</p>
+                                <div class="v_price_wrap">
+                                    <p class="v_price">25,360원</p>
+                                    <del class="v_old_price">38,000원</del>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -116,23 +146,27 @@
             </div>
             <div class="product_right">
                 <div class="product_info">
-                    <h1>레티놀 시카 모공 흔적 앰플 50mL</h1>
-                    <p>피부과·하이포알러지 테스트를 완료한 저자극 포뮬러
-                        <button class="share" aria-label="공유">
-                            <img src="./images/share.svg" alt="">
-                        </button>
-                    </p>
+                    <div>
+                        <h1>레티놀 시카 모공 흔적 앰플 50mL</h1>
+                        <p class="des">피부과·하이포알러지 테스트를 완료한 저자극 포뮬러
+                            <button class="share" aria-label="공유">
+                                <img src="./images/share.svg" alt="">
+                            </button>
+                        </p>
+                    </div>
                     <div class="review_price">
                         <div class="star">
-                            <img src="" alt="">
-                            <img src="" alt="">
-                            <img src="" alt="">
-                            <img src="" alt="">
-                            <img src="" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <p>4.8</p>
+                            <p>+999</p>
                         </div>
                         <div class="product_price">
                             <p class="price">45,460원</p>
-                            <p class="old_price">55,000원</p>
+                            <del class="old_price">55,000원</del>
                         </div>
                         <dl class="benefit">
                             <div>
@@ -150,7 +184,7 @@
                                 <dt>제품사용기한</dt>
                                 <dd>
                                     <span>29년 5월 21일</span>
-                                    <span>(보유 제품 중 가장 임박한 기한 기준입니다.)</span>
+                                    <span class="dis">(보유 제품 중 가장 임박한 기한 기준입니다.)</span>
                                 </dd>
                             </div>
                             <div>
@@ -160,8 +194,25 @@
                                     2만원 이상 결제 시 7000원 캐시백
                                 </dd>
                             </div>
-                        </dl>
-                    </div>
+                        </dl><!-- e:bene -->
+                        <div class="select">
+                            <div class="select_num">
+                                <p>레티놀 시카 모공 흔적 앰플 50mL</p>
+                                <div class="plus_minus">
+                                    <p><img src="" alt="minus">1<img src="" alt="plus"></p>
+                                </div>
+                            </div>
+                            <div class="select_price">
+                                <p>총 상품금액</p>
+                                <p class="select_last_price"><span>45,460</span> 원</p>
+                            </div>
+                        </div>
+                        <div class="buy_btn_wrap">
+                            <p class="heart_btn"><img src="" alt=""></p>
+                            <button type="button" id="cart_btn">장바구니</button>
+                            <button type="button" id="buy_btn">구매하기</button>
+                        </div>
+                    </div><!-- e: 리뷰,가격 -->
                 </div>
             </div>
         </div><!-- e: wrap -->
