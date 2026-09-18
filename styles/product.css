@@ -205,6 +205,7 @@
 .buy_btn_wrap #cart_btn,
 .buy_btn_wrap #buy_btn {
     white-space: nowrap;
+    flex-shrink: 0;
 }
 .buy_btn_wrap #cart_btn {
     font-size: 1.125rem;
