@@ -202,7 +202,10 @@
     display: flex; gap: 20px;
     align-items: center;
 }
-.buy_btn_wrap .heart_btn {}
+.buy_btn_wrap #cart_btn,
+.buy_btn_wrap #buy_btn {
+    white-space: nowrap;
+}
 .buy_btn_wrap #cart_btn {
     font-size: 1.125rem;
     font-weight: 600;
