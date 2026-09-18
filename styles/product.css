@@ -40,6 +40,12 @@
 .volume_pd {
     display: flex;
     align-items: center;
+    border: 1px solid var(--color-gray);
+    border-radius: 15px;
+}
+.volume_wrap .active {
+    display: flex;
+    align-items: center;
     border: 1px solid var(--color-point-light);
     border-radius: 15px;
     background-color: rgba(22, 182, 94, 0.1);
@@ -72,7 +78,9 @@
     padding-bottom: 100px;
 }
 .product_right .product_info {
-    display: flex; flex-flow: column; gap: 35px;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 35px;
 }
 .product_right .product_info h1 {
     font-size: 2.188rem;/* 35 */
@@ -85,19 +93,23 @@
 .product_right .product_info p .share {}
 /* 리뷰, 가격 */
 .product_right .product_info .review_price {}
-.product_right .product_info .review_price .star {
+.product_right .product_info .review_price .review_wrap {
+}
+.product_right .product_info .review_price .review_wrap .star {
     display: flex; align-self: center; gap: 5px;
     font-size: 0.875rem;/* 14 */
+    margin-bottom: 15px;
 }
-.product_right .product_info .review_price .product_price {
+.product_right .product_info .review_price .review_wrap .product_price {
     display: flex; gap: 10px;
     align-items: center;
+    margin-bottom: 35px;
 }
-.product_right .product_info .review_price .product_price .price {
+.product_right .product_info .review_price .review_wrap .product_price .price {
     font-size: 1.438rem;
     font-weight: 600;
 }
-.product_right .product_info .review_price .product_price .old_price {
+.product_right .product_info .review_price .review_wrap .product_price .old_price {
     color: var(--color-gray);
 }
 /* ----------------------------------- 베네핏 섹션 */
@@ -125,3 +137,29 @@
     margin: 0;
 }
 .product_right .product_info .review_price .benefit dd span {}
+/* ---------------------------------------------------- 상품선택 최종금액 */
+.select {
+    display: flex; flex-flow: column;
+    gap: 15px;
+
+}
+.select .select_num {
+
+    display: flex; align-items: center; justify-content: space-between;
+}
+.select .select_num .plus_minus {}
+.select .select_num .plus_minus p {
+    display: flex; align-items: center;
+}
+.select .select_num .plus_minus p {}
+.select .select_price {
+    display: flex; justify-content: space-between;
+}
+.select .select_price p {}
+.select .select_price .select_last_price {}
+.select .select_price .select_last_price span {}
+/* -------------------- 버튼 그룹 */
+.buy_btn_wrap {}
+.buy_btn_wrap .heart_btn {}
+.buy_btn_wrap #cart_btn {}
+.buy_btn_wrap #buy_btn {}
