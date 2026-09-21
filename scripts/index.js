@@ -201,7 +201,7 @@ function showProducts(category) {
     concernList.innerHTML = '';
     for (let product of products[category]) {
         concernList.innerHTML += `
-            <div class="product_card">
+            <a href="./product.html" class="product_card">
                 <p class="concern_thumb">
                     <img src="${product.img}" alt="">
                 </p>
@@ -219,7 +219,7 @@ function showProducts(category) {
                         ${product.rating}
                     </div>
                 </div>
-            </div>
+            </a>
         `;
     }
 }
@@ -359,7 +359,7 @@ function showShopProducts(category) {
     shopProducts.innerHTML = '';
     for (let product of shopData[category]) {
         shopProducts.innerHTML += `
-            <div class="product_card">
+            <a href="./product.html" class="product_card">
                 <div class="product_thumb">
                     <img src="${product.img}" alt="">
                 </div>
@@ -379,7 +379,7 @@ function showShopProducts(category) {
                         ${product.rating}
                     </div>
                 </div>
-            </div>
+            </a>
         `;
     }
 }
@@ -434,4 +434,13 @@ const heroSwiper = new Swiper('.hero_swiper', {
             });
         }
     }
+});
+
+const topBtn = document.querySelector('#topBtn');
+
+topBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });
