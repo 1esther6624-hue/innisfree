@@ -267,7 +267,15 @@
         height: auto;
     }
     header .header_inner .nav_icons {
-        gap: 14px;
+    gap: 0.625rem;
+    }
+    header .header_inner .nav_icons button img {
+        width: 1.125rem;   /* 검색·로그인·장바구니 아이콘 */
+        height: 1.125rem;
+    }
+    header .header_inner .nav_icons .menu_toggle img {
+        width: 1.25rem;    /* 햄버거 메뉴 아이콘 */
+        height: auto;
     }
     header .mobile_menu {
         padding: 4px 20px 16px;
