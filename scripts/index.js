@@ -439,10 +439,14 @@ const heroSwiper = new Swiper('.hero_swiper', {
 const topBtn = document.querySelector('#topBtn');
 
 topBtn.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+    if (window.lenis) {
+        window.lenis.scrollTo(0, { duration: 1.2 });
+    } else {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
 });
 /* 화면스크롤 */
 document.addEventListener('DOMContentLoaded', function () {
@@ -462,23 +466,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /* 이니스프리 mobile-swiper.js
-   ------------------------------------------------------------
-   모바일(≤768px)에서 화면 밖으로 잘려서 안 보이던 카드들을
-   Swiper로 옆으로 넘길 수 있게 만듭니다.
-
-   대상 (기존 responsive.css에서 overflow-x:auto 로 처리하던 3곳):
-     - #best  .best_list       (BEST SELLERS 상품 3개)      → 자유 스크롤
-     - #campaign .campaign_grid (RETINOL SKIN WEEK 카드 3개) → 스냅 스크롤
-     - #shop  .shop_products    (SHOP 상품 목록, JS로 동적 렌더) → 스냅 스크롤
-
-   SHOP BY CONCERN(#concernList)는 모바일에서 2열 그리드로 줄바꿈되어
-   잘리는 부분이 없으므로 대상에서 제외했습니다.
-
-   ※ index.html에 이미 있는 swiper-bundle.js(CDN) 뒤에,
-      index.js 뒤에 아래처럼 한 줄만 추가해 주세요.
-
-      <script src="./scripts/index.js" defer></script>
-      <script src="./scripts/mobile-swiper.js" defer></script>
    ------------------------------------------------------------ */
 (function () {
     var BREAKPOINT = 768;
@@ -509,9 +496,7 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     }
 
-    /* 컨테이너의 직계 자식들을 .swiper-wrapper 로 한 번 감싸고
-       각 자식에 .swiper-slide 클래스를 추가한다.
-       (이미 감싸져 있으면 아무것도 하지 않음) */
+    /* */
     function wrapChildren(container) {
         if (container.querySelector(':scope > .swiper-wrapper')) return false;
 

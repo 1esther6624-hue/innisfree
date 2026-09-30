@@ -767,3 +767,22 @@ main #store:hover .btn_pill {
 #footer .footer_links a:hover {
     color: #fff;
 }
+/* TOP 버튼 */
+#topBtn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    background: #fff;
+    color: #111;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
