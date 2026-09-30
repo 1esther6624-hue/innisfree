@@ -444,3 +444,190 @@ topBtn.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+/* 화면스크롤 */
+document.addEventListener('DOMContentLoaded', function () {
+    var lenis = new Lenis({
+        duration: 1.2,   // 클수록 더 미끄러지듯 느리게
+        smoothWheel: true,
+        easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }
+    });
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    window.lenis = lenis; // 다른 버튼에서 쓰려고 전역에 저장
+});
+
+/* 이니스프리 mobile-swiper.js
+   ------------------------------------------------------------
+   모바일(≤768px)에서 화면 밖으로 잘려서 안 보이던 카드들을
+   Swiper로 옆으로 넘길 수 있게 만듭니다.
+
+   대상 (기존 responsive.css에서 overflow-x:auto 로 처리하던 3곳):
+     - #best  .best_list       (BEST SELLERS 상품 3개)      → 자유 스크롤
+     - #campaign .campaign_grid (RETINOL SKIN WEEK 카드 3개) → 스냅 스크롤
+     - #shop  .shop_products    (SHOP 상품 목록, JS로 동적 렌더) → 스냅 스크롤
+
+   SHOP BY CONCERN(#concernList)는 모바일에서 2열 그리드로 줄바꿈되어
+   잘리는 부분이 없으므로 대상에서 제외했습니다.
+
+   ※ index.html에 이미 있는 swiper-bundle.js(CDN) 뒤에,
+      index.js 뒤에 아래처럼 한 줄만 추가해 주세요.
+
+      <script src="./scripts/index.js" defer></script>
+      <script src="./scripts/mobile-swiper.js" defer></script>
+   ------------------------------------------------------------ */
+(function () {
+    var BREAKPOINT = 768;
+
+    var configs = [
+        { selector: '#best .best_list', spaceBetween: 14, freeMode: true },
+        { selector: '#campaign .campaign_grid', spaceBetween: 14, freeMode: false },
+        { selector: '#shop .shop_products', spaceBetween: 14, freeMode: false, dynamic: true }
+    ];
+
+    // container element -> Swiper instance
+    var instances = new Map();
+    // container element -> MutationObserver (동적 렌더 감지용)
+    var watchers = new Map();
+
+    function isMobile() {
+        return window.innerWidth <= BREAKPOINT;
+    }
+
+    function debounce(fn, wait) {
+        var t;
+        return function () {
+            var args = arguments;
+            clearTimeout(t);
+            t = setTimeout(function () {
+                fn.apply(null, args);
+            }, wait);
+        };
+    }
+
+    /* 컨테이너의 직계 자식들을 .swiper-wrapper 로 한 번 감싸고
+       각 자식에 .swiper-slide 클래스를 추가한다.
+       (이미 감싸져 있으면 아무것도 하지 않음) */
+    function wrapChildren(container) {
+        if (container.querySelector(':scope > .swiper-wrapper')) return false;
+
+        var children = Array.prototype.filter.call(container.children, function (el) {
+            return !el.classList.contains('swiper-wrapper');
+        });
+        if (!children.length) return false;
+
+        var wrapper = document.createElement('div');
+        wrapper.className = 'swiper-wrapper';
+
+        children.forEach(function (child) {
+            child.classList.add('swiper-slide');
+            wrapper.appendChild(child);
+        });
+
+        container.appendChild(wrapper);
+        container.classList.add('swiper');
+        return true;
+    }
+
+    /* wrapChildren의 역과정: 원래의 평평한 구조로 되돌린다.
+       (태블릿/데스크톱 CSS가 기대하는 DOM 구조로 복원) */
+    function unwrapChildren(container) {
+        var wrapper = container.querySelector(':scope > .swiper-wrapper');
+        if (!wrapper) {
+            container.classList.remove('swiper');
+            return;
+        }
+
+        Array.prototype.forEach.call(wrapper.children, function (child) {
+            child.classList.remove('swiper-slide');
+            container.insertBefore(child, wrapper);
+        });
+        wrapper.remove();
+        container.classList.remove('swiper');
+    }
+
+    function destroySwiper(container) {
+        var instance = instances.get(container);
+        if (instance) {
+            instance.destroy(true, false);
+            instances.delete(container);
+        }
+        unwrapChildren(container);
+    }
+
+    function initSwiper(container, cfg) {
+        if (instances.has(container)) return;
+        var wrapped = wrapChildren(container);
+        if (!wrapped) return;
+
+        instances.set(
+            container,
+            new Swiper(container, {
+                slidesPerView: 'auto',
+                spaceBetween: cfg.spaceBetween,
+                freeMode: cfg.freeMode,
+                grabCursor: true,
+                watchOverflow: true,
+                resistanceRatio: 0.65
+            })
+        );
+    }
+
+    function sync(container, cfg) {
+        if (!container) return;
+        if (isMobile()) {
+            initSwiper(container, cfg);
+        } else {
+            destroySwiper(container);
+        }
+    }
+
+    function refreshAll() {
+        configs.forEach(function (cfg) {
+            sync(document.querySelector(cfg.selector), cfg);
+        });
+    }
+
+    /* 모바일스와이퍼 */
+    function watchDynamic(container, cfg) {
+        if (!container || watchers.has(container)) return;
+
+        var rebuild = debounce(function () {
+            destroySwiper(container);
+            if (isMobile()) initSwiper(container, cfg);
+        }, 50);
+
+        var observer = new MutationObserver(function (mutations) {
+            var onlyOwnChange = mutations.every(function (m) {
+                var nodes = Array.prototype.concat.call(
+                    Array.prototype.slice.call(m.addedNodes),
+                    Array.prototype.slice.call(m.removedNodes)
+                );
+                return nodes.every(function (n) {
+                    return n.nodeType === 1 && n.classList && n.classList.contains('swiper-wrapper');
+                });
+            });
+            if (onlyOwnChange) return;
+            rebuild();
+        });
+
+        observer.observe(container, { childList: true });
+        watchers.set(container, observer);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        refreshAll();
+
+        configs
+            .filter(function (cfg) { return cfg.dynamic; })
+            .forEach(function (cfg) {
+                watchDynamic(document.querySelector(cfg.selector), cfg);
+            });
+
+        window.addEventListener('resize', debounce(refreshAll, 150));
+    });
+})();
